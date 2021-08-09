@@ -135,6 +135,7 @@ func resourceAwsLambdaEventSourceMapping() *schema.Resource {
 					Type:         schema.TypeString,
 					ValidateFunc: validation.StringInSlice(lambda.FunctionResponseType_Values(), false),
 				},
+				DiffSuppressFunc: suppressMissingOptionalConfigurationBlock,
 			},
 
 			"last_modified": {
@@ -184,6 +185,7 @@ func resourceAwsLambdaEventSourceMapping() *schema.Resource {
 					Type:         schema.TypeString,
 					ValidateFunc: validation.StringLenBetween(1, 1000),
 				},
+				DiffSuppressFunc: suppressMissingOptionalConfigurationBlock,
 			},
 
 			"self_managed_event_source": {
@@ -268,6 +270,7 @@ func resourceAwsLambdaEventSourceMapping() *schema.Resource {
 					Type:         schema.TypeString,
 					ValidateFunc: validation.StringLenBetween(1, 249),
 				},
+				DiffSuppressFunc: suppressMissingOptionalConfigurationBlock,
 			},
 
 			"tumbling_window_in_seconds": {
